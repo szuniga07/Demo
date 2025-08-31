@@ -103,11 +103,11 @@ summary(im11$ITS)
 interpret(im11)$its
 plot(im11, "ITS", add.legend="top", ylim=c(2, 8))
 
-## Two groups ##
+## One group, two periods ##
 im12 <- assess(formula=los ~ ., data=hosp1, intervention = "program",
                int.time="month", interrupt= c(5, 9), its="one")
-summary(im11$ITS)
-interpret(im11)$its
+summary(im12$ITS)
+interpret(im12)$its
 plot(im12, "ITS", add.legend="top", ylim=c(2, 8))
 
 # Assessing hospital inpatient bed use pre-covid, pre-and-post vaccine
@@ -119,7 +119,7 @@ plot(im12, "ITS", add.legend="top", ylim=c(2, 8))
 cts_small$program <- ifelse(cts_small$state=="CA", 1, 0)
 ctca <- cts_small[cts_small$state=="CA", ]
 
-## One group, one interruption ##
+## two group, one interruption ##
 
 im21 <- assess(formula=inpatient_beds_used ~ ., data=cts_small, intervention = "program",
                int.time="Month", interrupt= c(4), its="two", newdata=TRUE)
